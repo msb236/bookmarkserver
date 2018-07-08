@@ -16,30 +16,6 @@
 #   * A GET request whose path contains a short name.  The server looks up
 #     that short name in its dictionary and redirects to the corresponding
 #     long URI.
-#
-# Your job in this exercise is to finish the server code.
-#
-# Here are the steps you need to complete:
-#
-# 1. Write the CheckURI function, which takes a URI and returns True if a
-#    request to that URI returns a 200 OK, and False otherwise.
-#
-# 2. Write the code inside do_GET that sends a 303 redirect to a known name.
-#
-# 3. Write the code inside do_POST that sends a 400 error if the form fields
-#    are missing.
-#
-# 4. Write the code inside do_POST that sends a 303 redirect to the form
-#    after saving a newly submitted URI.
-#
-# 5. Write the code inside do_POST that sends a 404 error if a URI is not
-#    successfully checked (i.e. if CheckURI returns false).
-#
-# In each step, you'll need to delete a line of code that raises the
-# NotImplementedError exception.  These are there as placeholders in the
-# starter code.
-#
-# After writing each step, restart the server and run test.py to test it.
 
 import http.server
 import requests
