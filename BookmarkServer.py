@@ -17,6 +17,7 @@
 #     that short name in its dictionary and redirects to the corresponding
 #     long URI.
 
+import os
 import http.server
 import requests
 from urllib.parse import unquote, parse_qs
@@ -126,6 +127,7 @@ class Shortener(http.server.BaseHTTPRequestHandler):
             self.send_error(404, "Bad URI provided: {}".format(longuri))
 
 if __name__ == '__main__':
-    server_address = ('', 8000)
+    port = int(os.environ.get('PORT', 8000)) # Use 8000 if PORT not found
+    server_address = ('', port)
     httpd = http.server.HTTPServer(server_address, Shortener)
     httpd.serve_forever()
